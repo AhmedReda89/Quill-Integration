@@ -1,0 +1,107 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "quill-emoji",
+        "scope": null,
+        "escapedName": "quill-emoji",
+        "name": "quill-emoji",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\Quill POC"
+    ]
+  ],
+  "_from": "quill-emoji@latest",
+  "_id": "quill-emoji@0.0.9",
+  "_inCache": true,
+  "_location": "/quill-emoji",
+  "_nodeVersion": "7.7.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/quill-emoji-0.0.9.tgz_1496718551610_0.9023881508037448"
+  },
+  "_npmUser": {
+    "name": "contentco",
+    "email": "yemin@content.co"
+  },
+  "_npmVersion": "4.4.4",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "quill-emoji",
+    "scope": null,
+    "escapedName": "quill-emoji",
+    "name": "quill-emoji",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/quill-emoji/-/quill-emoji-0.0.9.tgz",
+  "_shasum": "0256fd5d95fe9a905774c05fbc817e1a168a11e7",
+  "_shrinkwrap": null,
+  "_spec": "quill-emoji",
+  "_where": "E:\\Quill POC",
+  "author": {
+    "name": "contentco"
+  },
+  "bugs": {
+    "url": "https://github.com/contentco/quill-emoji/issues"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "fuse.js": "^2.7.4",
+    "preact": "^7.2.1",
+    "quill": "^1.2.4"
+  },
+  "description": "Quill Extension for Emoji Selection",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "0256fd5d95fe9a905774c05fbc817e1a168a11e7",
+    "tarball": "https://registry.npmjs.org/quill-emoji/-/quill-emoji-0.0.9.tgz"
+  },
+  "gitHead": "0cf53e5f8ee1a00b1abc9ae9ca6ded8768ad09a5",
+  "homepage": "https://github.com/contentco/quill-emoji#readme",
+  "keywords": [
+    "content",
+    "emoji",
+    "quill",
+    "editor"
+  ],
+  "license": "MIT",
+  "main": "webpack.config.js",
+  "maintainers": [
+    {
+      "name": "contentco",
+      "email": "yemin@content.co"
+    }
+  ],
+  "name": "quill-emoji",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contentco/quill-emoji.git"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "npm test"
+  },
+  "version": "0.0.9"
+}

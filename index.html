@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Quill POC</title>
+        <link href="quill/dist/quill.core.css" rel="stylesheet"/>
+        <link href="https://cdn.quilljs.com/1.2.2/quill.snow.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="quill-emoji/dist/quill-emoji.css">
+        <link href="trial-mentions/styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container" style="position:relative;">
+            <div id="mainEditor" style="height: 150px;"></div>
+            <ul class="completions"></ul>
+            <button id="mainPostBtn">Post</button>
+            <br/>
+            <div id="displayArea"></div>
+        </div>
+        
+        <script src="jquery/dist/jquery.min.js"></script>
+        <script src="quill/dist/quill.min.js"></script>
+        <script src="fuse.js/src/fuse.js"></script>
+        <script src="quill-emoji/dist/quill-emoji.js"></script>
+        <script src="trial-mentions/script.js" ></script>
+        <script type="text/javascript">
+          var toolbarOptions = {
+            container: [
+              ['bold', 'italic', 'underline', 'strike'],
+              ['blockquote', 'code-block'],
+              [{ 'header': 1 }, { 'header': 2 }], 
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+              [{ 'script': 'sub' }, { 'script': 'super' }], 
+              [{ 'indent': '-1' }, { 'indent': '+1' }], 
+              [{ 'direction': 'rtl' }],
+              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+              [{ 'color': [] }, { 'background': [] }], 
+              [{ 'font': [] }],
+              [{ 'align': [] }],
+              ['clean'],     
+              ['emoji'],
+              ['link', 'image', 'video']         
+            ],
+            handlers: {'emoji': function() {}}
+          }
+          
+          var quill = new Quill('#mainEditor', {
+              modules: {
+                    toolbar: toolbarOptions,
+                    toolbar_emoji: true,
+                    short_name_emoji: true,
+                    textarea_emoji:false,
+                    mentions: {
+                        container: '.completions',
+                        onClose: val => console.log("Closing: ", val),
+                        onOpen: () => console.log("Opening"),
+                        users: [
+                            {id: 1, name: 'Christy'},
+                            {id: 2, name: 'Micha'},
+                            {id: 3, name: 'Sima'},
+                            {id: 4, name: 'Coreen'},
+                            {id: 5, name: 'Aimee'},
+                            {id: 6, name: 'Brant'},
+                            {id: 7, name: 'Maryetta'},
+                            {id: 8, name: 'Nicol'},
+                            {id: 9, name: 'Thresa'},
+                            {id: 10, name: 'Pura'},
+                            {id: 11, name: 'Audie'},
+                            {id: 12, name: 'Jacob'},
+                            {id: 13, name: 'Mika'},
+                            {id: 14, name: 'Nubia'},
+                            {id: 15, name: 'Ana'},
+                            {id: 16, name: 'Sudie'},
+                            {id: 17, name: 'Raymundo'},
+                            {id: 18, name: 'Carolyne'},
+                            {id: 19, name: 'Doretha'},
+                            {id: 20, name: 'Milo'},
+                            {id: 20, name: 'Reda'},
+                            {id: 20, name: 'Hamed'},
+                        ]
+                    }
+              },
+              placeholder: 'Compose an epic...',
+              theme: 'snow',
+          });
+
+            var quillDisplay = new Quill('#displayArea',{});
+            quillDisplay.enable(false);
+
+            $('#mainPostBtn').click(function(){
+                var postBody = quill.getContents();
+                console.log(postBody);
+                quillDisplay.setContents(postBody);
+
+                if($('#displayArea a').length > 0){
+                    $('#displayArea a').each(function(){
+                        var targetLink = $(this).attr('href');
+                        console.log(targetLink);
+                        
+                        $.ajax({
+                            url: "https://api.linkpreview.net?key=59f778f4117c7e64cacc12d96e7d6fda6e292ffc84bf4&q=" + targetLink,
+                            type: "GET",
+                            contentType: "application/json",
+                            success: function(result){
+                                console.log(result);
+                            }
+                        });
+
+                    });
+                }
+            });
+
+        </script>
+    </body>
+</html>
